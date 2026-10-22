@@ -1,0 +1,49 @@
+{
+  "releases": [
+    {
+      "id": "2026.10",
+      "name": "October 2026 Release",
+      "date": "2026-10-18",
+      "journeys": [
+        { "name": "Patient Intake", "status": "Pass", "owner": "Riya Shah", "notes": "", "scenarios": { "total": 24, "passed": 24, "failed": 0, "blocked": 0, "skipped": 0 } },
+        { "name": "Appointment Scheduling", "status": "Pass", "owner": "Riya Shah", "notes": "", "scenarios": { "total": 30, "passed": 30, "failed": 0, "blocked": 0, "skipped": 0 } },
+        { "name": "Insurance Verification", "status": "At Risk", "owner": "Arjun Mehta", "notes": "Intermittent timeout on eligibility API in staging; retest scheduled before sign-off.", "scenarios": { "total": 28, "passed": 24, "failed": 2, "blocked": 0, "skipped": 2 } },
+        { "name": "Care Plan Generation", "status": "Blocked", "owner": "Priya Nair", "notes": "Blocked on upstream data model change not yet merged. ETA 2 days.", "scenarios": { "total": 20, "passed": 9, "failed": 0, "blocked": 11, "skipped": 0 } },
+        { "name": "Billing & Claims", "status": "Pass", "owner": "Karan Verma", "notes": "", "scenarios": { "total": 35, "passed": 35, "failed": 0, "blocked": 0, "skipped": 0 } },
+        { "name": "Referral Management", "status": "Fail", "owner": "Arjun Mehta", "notes": "Referral status not syncing to EHR; bug filed, fix in progress.", "scenarios": { "total": 22, "passed": 17, "failed": 5, "blocked": 0, "skipped": 0 } },
+        { "name": "Patient Notifications", "status": "Pass", "owner": "Priya Nair", "notes": "", "scenarios": { "total": 18, "passed": 18, "failed": 0, "blocked": 0, "skipped": 0 } },
+        { "name": "Reporting Dashboard", "status": "Pass", "owner": "Karan Verma", "notes": "", "scenarios": { "total": 16, "passed": 16, "failed": 0, "blocked": 0, "skipped": 0 } }
+      ]
+    },
+    {
+      "id": "2026.09",
+      "name": "September 2026 Release",
+      "date": "2026-09-20",
+      "journeys": [
+        { "name": "Patient Intake", "status": "Pass", "owner": "Riya Shah", "notes": "", "scenarios": { "total": 24, "passed": 24, "failed": 0, "blocked": 0, "skipped": 0 } },
+        { "name": "Appointment Scheduling", "status": "Pass", "owner": "Riya Shah", "notes": "", "scenarios": { "total": 29, "passed": 29, "failed": 0, "blocked": 0, "skipped": 0 } },
+        { "name": "Insurance Verification", "status": "Pass", "owner": "Arjun Mehta", "notes": "", "scenarios": { "total": 27, "passed": 27, "failed": 0, "blocked": 0, "skipped": 0 } },
+        { "name": "Care Plan Generation", "status": "Pass", "owner": "Priya Nair", "notes": "", "scenarios": { "total": 20, "passed": 20, "failed": 0, "blocked": 0, "skipped": 0 } },
+        { "name": "Billing & Claims", "status": "At Risk", "owner": "Karan Verma", "notes": "Minor rounding discrepancy in claims total; monitoring, low impact.", "scenarios": { "total": 34, "passed": 31, "failed": 1, "blocked": 0, "skipped": 2 } },
+        { "name": "Referral Management", "status": "Pass", "owner": "Arjun Mehta", "notes": "", "scenarios": { "total": 22, "passed": 22, "failed": 0, "blocked": 0, "skipped": 0 } },
+        { "name": "Patient Notifications", "status": "Pass", "owner": "Priya Nair", "notes": "", "scenarios": { "total": 18, "passed": 18, "failed": 0, "blocked": 0, "skipped": 0 } },
+        { "name": "Reporting Dashboard", "status": "Pass", "owner": "Karan Verma", "notes": "", "scenarios": { "total": 16, "passed": 16, "failed": 0, "blocked": 0, "skipped": 0 } }
+      ]
+    },
+    {
+      "id": "2026.08",
+      "name": "August 2026 Release",
+      "date": "2026-08-16",
+      "journeys": [
+        { "name": "Patient Intake", "status": "Pass", "owner": "Riya Shah", "notes": "", "scenarios": { "total": 23, "passed": 23, "failed": 0, "blocked": 0, "skipped": 0 } },
+        { "name": "Appointment Scheduling", "status": "At Risk", "owner": "Riya Shah", "notes": "Flaky slot-locking test under load; fixed in next sprint.", "scenarios": { "total": 28, "passed": 24, "failed": 3, "blocked": 0, "skipped": 1 } },
+        { "name": "Insurance Verification", "status": "Pass", "owner": "Arjun Mehta", "notes": "", "scenarios": { "total": 27, "passed": 27, "failed": 0, "blocked": 0, "skipped": 0 } },
+        { "name": "Care Plan Generation", "status": "Pass", "owner": "Priya Nair", "notes": "", "scenarios": { "total": 19, "passed": 19, "failed": 0, "blocked": 0, "skipped": 0 } },
+        { "name": "Billing & Claims", "status": "Pass", "owner": "Karan Verma", "notes": "", "scenarios": { "total": 33, "passed": 33, "failed": 0, "blocked": 0, "skipped": 0 } },
+        { "name": "Referral Management", "status": "Fail", "owner": "Arjun Mehta", "notes": "EHR sync bug first surfaced here.", "scenarios": { "total": 21, "passed": 14, "failed": 7, "blocked": 0, "skipped": 0 } },
+        { "name": "Patient Notifications", "status": "Pass", "owner": "Priya Nair", "notes": "", "scenarios": { "total": 17, "passed": 17, "failed": 0, "blocked": 0, "skipped": 0 } },
+        { "name": "Reporting Dashboard", "status": "Pass", "owner": "Karan Verma", "notes": "", "scenarios": { "total": 15, "passed": 15, "failed": 0, "blocked": 0, "skipped": 0 } }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Regression Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img src="assets/logo.png" alt="" class="logo" onerror="this.style.display='none'" />
+      <h1>Regression Dashboard</h1>
+    </div>
+    <div class="controls">
+      <label for="releaseSelect">Release</label>
+      <select id="releaseSelect"></select>
+      <button id="emailBtn" class="btn-primary">Generate Leadership Summary</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="statCards" class="stat-cards"></section>
+
+    <section class="trend-section">
+      <h2 class="section-title">Scenario Pass Rate by Release</h2>
+      <div id="trendChart" class="trend-chart"></div>
+    </section>
+
+    <section class="filters">
+      <button class="filter-chip active" data-filter="All">All</button>
+      <button class="filter-chip" data-filter="Blocked">Blocked</button>
+      <button class="filter-chip" data-filter="At Risk">At Risk</button>
+      <button class="filter-chip" data-filter="Fail">Failed</button>
+      <button class="filter-chip" data-filter="Pass">Passed</button>
+    </section>
+
+    <section class="table-wrap">
+      <table id="journeyTable">
+        <thead>
+          <tr>
+            <th>Journey</th>
+            <th>Status</th>
+            <th>Scenarios</th>
+            <th>Owner</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody id="journeyTableBody"></tbody>
+      </table>
+      <p class="table-hint">Click a journey row for scenario breakdown and trend.</p>
+    </section>
+  </main>
+
+  <div id="detailModal" class="modal-overlay hidden">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="detailTitle"></h2>
+        <button id="closeDetailModal" class="btn-icon">&times;</button>
+      </div>
+      <div id="detailMeta" class="detail-meta"></div>
+      <h3 class="section-title small">Scenario Breakdown</h3>
+      <div id="detailScenarioSummary"></div>
+      <h3 class="section-title small">Pass Rate Trend</h3>
+      <div id="detailTrend" class="trend-chart"></div>
+    </div>
+  </div>
+
+  <div id="emailModal" class="modal-overlay hidden">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Leadership Summary</h2>
+        <button id="closeModal" class="btn-icon">&times;</button>
+      </div>
+      <p class="modal-hint">Click "Copy for Email", then paste directly into Outlook/Gmail (Cmd+V). The table formatting will carry over.</p>
+      <div id="emailPreview" class="email-preview"></div>
+      <div class="modal-actions">
+        <button id="copyEmailBtn" class="btn-primary">Copy for Email</button>
+        <span id="copyStatus" class="copy-status"></span>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
