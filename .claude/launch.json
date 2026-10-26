@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "regression-dashboard",
-      "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8000"],
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["serve.js", "8000"],
       "port": 8000
     }
   ]

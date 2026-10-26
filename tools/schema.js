@@ -1,0 +1,60 @@
+// Single definition of the Excel input format, shared by the template maker and the data builder.
+module.exports = {
+  PLATFORMS: ["iOS", "Android"],
+  STATUSES: ["Pass", "At Risk", "Fail", "Blocked"],
+  SEVERITIES: ["Critical", "High", "Medium", "Low"],
+  DEFECT_STATUSES: ["Open", "In Progress", "Fixed - Retest", "Deferred", "Closed", "Rejected"],
+  FAILURE_TYPES: ["Application defect", "Automation script issue", "Environment / test data", "Under investigation"],
+  DECISIONS: ["In Progress", "Completed"],
+
+  // Release sheet is a key/value list. Keys are matched exactly.
+  RELEASE_KEYS: [
+    ["Release ID", "e.g. 2026.10 - must be unique, used to replace/update this release"],
+    ["Release Name", "e.g. October 2026 Release"],
+    ["Release Date", "Regression sign-off / report date"],
+    ["iOS Build", "e.g. 5.12.0 (2431)"],
+    ["iOS Devices", "e.g. iPhone 15 (iOS 17.5), iPhone 12 (iOS 16.7)"],
+    ["Android Build", "e.g. 5.12.0 (7120)"],
+    ["Android Devices", "e.g. Pixel 8 (Android 14), Galaxy S22 (Android 13)"],
+    ["Decision Override", "Optional (QA lead only): In Progress / Completed. Blank = calculated automatically"],
+    ["Decision Note", "Optional: reason shown with the decision"],
+    ["Key Risk", "Free text for leadership"],
+    ["Action 1", "Owner: action"],
+    ["Action 2", "Owner: action"],
+    ["Action 3", "Owner: action"],
+  ],
+
+  JOURNEYS: {
+    name: "Journeys",
+    columns: [
+      ["Journey", "journey", 28],
+      ["Platform", "platform", 11],
+      ["Owner", "owner", 18],
+      ["Total Tests", "total", 11],
+      ["Passed", "passed", 9],
+      ["Failed", "failed", 9],
+      ["Blocked", "blocked", 9],
+      ["Skipped", "skipped", 9],
+      ["Status (optional)", "status", 16],
+      ["Notes", "notes", 60],
+    ],
+  },
+  DEFECTS: {
+    name: "Defects",
+    columns: [
+      ["Defect ID", "id", 12],
+      ["Title", "title", 40],
+      ["Journey", "journey", 26],
+      ["Platform", "platform", 11],
+      ["Severity", "severity", 11],
+      ["Status", "status", 15],
+      ["Owner", "owner", 18],
+      ["Reported", "reported", 12],
+      ["Target Fix / ETA", "eta", 15],
+      ["Jira URL", "url", 34],
+      ["Failure Type", "failureType", 24],
+      ["Affected Tests", "affectedTests", 14],
+      ["Impact / Notes", "notes", 50],
+    ],
+  },
+};

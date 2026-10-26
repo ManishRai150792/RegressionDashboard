@@ -3,76 +3,153 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Regression Dashboard</title>
+  <title>Mobile Regression Dashboard</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <header class="topbar">
-    <div class="brand">
-      <img src="assets/logo.png" alt="" class="logo" onerror="this.style.display='none'" />
-      <h1>Regression Dashboard</h1>
-    </div>
-    <div class="controls">
-      <label for="releaseSelect">Release</label>
-      <select id="releaseSelect"></select>
-      <button id="emailBtn" class="btn-primary">Generate Leadership Summary</button>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-top">
+        <div class="brand">
+          <img src="assets/logo.png" alt="" class="logo" onerror="this.style.display='none'" />
+          <div>
+            <h1>Mobile Regression Dashboard</h1>
+            <div id="heroSub" class="hero-sub"></div>
+          </div>
+        </div>
+        <div class="controls">
+          <div class="control">
+            <label for="releaseSelect">Release</label>
+            <select id="releaseSelect"></select>
+          </div>
+          <div class="control">
+            <label>Platform</label>
+            <div id="platformToggle" class="segmented"></div>
+          </div>
+          <button id="emailBtn" class="btn-light">Leadership Summary</button>
+        </div>
+      </div>
+
+      <div class="hero-verdict-row">
+        <div id="verdict" class="verdict"></div>
+        <div id="heroMeta" class="hero-meta"></div>
+      </div>
+
+      <section id="kpiStrip" class="kpi-strip"></section>
+      <section id="progress" class="hero-progress"></section>
     </div>
   </header>
 
   <main>
-    <section id="statCards" class="stat-cards"></section>
+    <div id="warnings"></div>
 
-    <section class="trend-section">
-      <h2 class="section-title">Scenario Pass Rate by Release</h2>
-      <div id="trendChart" class="trend-chart"></div>
+    <section class="card" id="summaryCard">
+      <h2 class="section-title">Key risks &amp; next actions</h2>
+      <div id="summaryBody"></div>
     </section>
 
-    <section class="filters">
-      <button class="filter-chip active" data-filter="All">All</button>
-      <button class="filter-chip" data-filter="Blocked">Blocked</button>
-      <button class="filter-chip" data-filter="At Risk">At Risk</button>
-      <button class="filter-chip" data-filter="Fail">Failed</button>
-      <button class="filter-chip" data-filter="Pass">Passed</button>
+    <section class="card">
+      <h2 class="section-title">Android &amp; iOS execution</h2>
+      <div class="table-scroll">
+        <table class="exec-table">
+          <thead>
+            <tr><th>Platform</th><th>Planned</th><th>Passed</th><th>Failed</th><th>Blocked</th><th>Not Run</th><th>Pass %</th></tr>
+          </thead>
+          <tbody id="execBody"></tbody>
+        </table>
+      </div>
     </section>
+
+    <section class="card" id="attentionCard">
+      <h2 class="section-title">Needs attention</h2>
+      <div id="attentionList"></div>
+    </section>
+
+    <section class="card">
+      <h2 class="section-title">Why tests failed <span class="hint-inline">failure classification</span></h2>
+      <div id="classification"></div>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <h2 class="section-title" style="margin:0">Defects</h2>
+        <label class="toggle"><input type="checkbox" id="openOnly" checked /> Open only</label>
+      </div>
+      <div id="defectSeverity" class="sev-row"></div>
+      <div id="defectEmpty" class="empty"></div>
+      <div id="defectTableWrap" class="table-scroll">
+        <table class="plain">
+          <thead>
+            <tr><th>Defect</th><th>Title</th><th>Journey</th><th>Platform</th><th>Severity</th><th>Status</th><th>Owner</th><th>ETA</th><th>Failure type</th></tr>
+          </thead>
+          <tbody id="defectTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <h2 class="section-title page-title">Trends</h2>
+    <section class="trend-grid">
+      <div class="card">
+        <div class="card-head">
+          <h3>Pass rate by release</h3>
+          <div id="legendPass" class="legend"></div>
+        </div>
+        <div id="trendPass"></div>
+      </div>
+      <div class="card">
+        <div class="card-head">
+          <h3>Journey outcomes by release</h3>
+          <div id="legendStatus" class="legend"></div>
+        </div>
+        <div id="trendStatus"></div>
+      </div>
+    </section>
+
+    <h2 class="section-title page-title">Journeys</h2>
+    <section class="filters" id="statusFilters"></section>
 
     <section class="table-wrap">
       <table id="journeyTable">
         <thead>
           <tr>
             <th>Journey</th>
+            <th>Platform</th>
             <th>Status</th>
-            <th>Scenarios</th>
+            <th>Result</th>
             <th>Owner</th>
             <th>Notes</th>
           </tr>
         </thead>
         <tbody id="journeyTableBody"></tbody>
       </table>
-      <p class="table-hint">Click a journey row for scenario breakdown and trend.</p>
+      <p class="table-hint">Click a journey row for the scenario breakdown, linked defects and trend.</p>
     </section>
   </main>
 
   <div id="detailModal" class="modal-overlay hidden">
-    <div class="modal">
+    <div class="modal modal-wide">
       <div class="modal-header">
         <h2 id="detailTitle"></h2>
-        <button id="closeDetailModal" class="btn-icon">&times;</button>
+        <button id="closeDetailModal" class="btn-icon" aria-label="Close">&times;</button>
       </div>
       <div id="detailMeta" class="detail-meta"></div>
-      <h3 class="section-title small">Scenario Breakdown</h3>
+      <div id="detailKpis" class="detail-kpis"></div>
+      <h3 class="section-title small">Scenario breakdown</h3>
       <div id="detailScenarioSummary"></div>
-      <h3 class="section-title small">Pass Rate Trend</h3>
-      <div id="detailTrend" class="trend-chart"></div>
+      <h3 class="section-title small">Linked defects</h3>
+      <div id="detailDefects"></div>
+      <h3 class="section-title small">Pass rate trend</h3>
+      <div id="detailTrend"></div>
     </div>
   </div>
 
   <div id="emailModal" class="modal-overlay hidden">
-    <div class="modal">
+    <div class="modal modal-wide">
       <div class="modal-header">
         <h2>Leadership Summary</h2>
-        <button id="closeModal" class="btn-icon">&times;</button>
+        <button id="closeModal" class="btn-icon" aria-label="Close">&times;</button>
       </div>
-      <p class="modal-hint">Click "Copy for Email", then paste directly into Outlook/Gmail (Cmd+V). The table formatting will carry over.</p>
+      <p class="modal-hint">Click "Copy for Email", then paste directly into Outlook/Gmail (Ctrl+V). The table formatting will carry over.</p>
       <div id="emailPreview" class="email-preview"></div>
       <div class="modal-actions">
         <button id="copyEmailBtn" class="btn-primary">Copy for Email</button>
@@ -80,6 +157,8 @@
       </div>
     </div>
   </div>
+
+  <div id="tooltip" class="tooltip hidden"></div>
 
   <script src="js/dashboard.js"></script>
 </body>

@@ -4,46 +4,733 @@
       "id": "2026.10",
       "name": "October 2026 Release",
       "date": "2026-10-18",
-      "journeys": [
-        { "name": "Patient Intake", "status": "Pass", "owner": "Riya Shah", "notes": "", "scenarios": { "total": 24, "passed": 24, "failed": 0, "blocked": 0, "skipped": 0 } },
-        { "name": "Appointment Scheduling", "status": "Pass", "owner": "Riya Shah", "notes": "", "scenarios": { "total": 30, "passed": 30, "failed": 0, "blocked": 0, "skipped": 0 } },
-        { "name": "Insurance Verification", "status": "At Risk", "owner": "Arjun Mehta", "notes": "Intermittent timeout on eligibility API in staging; retest scheduled before sign-off.", "scenarios": { "total": 28, "passed": 24, "failed": 2, "blocked": 0, "skipped": 2 } },
-        { "name": "Care Plan Generation", "status": "Blocked", "owner": "Priya Nair", "notes": "Blocked on upstream data model change not yet merged. ETA 2 days.", "scenarios": { "total": 20, "passed": 9, "failed": 0, "blocked": 11, "skipped": 0 } },
-        { "name": "Billing & Claims", "status": "Pass", "owner": "Karan Verma", "notes": "", "scenarios": { "total": 35, "passed": 35, "failed": 0, "blocked": 0, "skipped": 0 } },
-        { "name": "Referral Management", "status": "Fail", "owner": "Arjun Mehta", "notes": "Referral status not syncing to EHR; bug filed, fix in progress.", "scenarios": { "total": 22, "passed": 17, "failed": 5, "blocked": 0, "skipped": 0 } },
-        { "name": "Patient Notifications", "status": "Pass", "owner": "Priya Nair", "notes": "", "scenarios": { "total": 18, "passed": 18, "failed": 0, "blocked": 0, "skipped": 0 } },
-        { "name": "Reporting Dashboard", "status": "Pass", "owner": "Karan Verma", "notes": "", "scenarios": { "total": 16, "passed": 16, "failed": 0, "blocked": 0, "skipped": 0 } }
+      "summary": {
+        "keyRisk": "Regression is blocked on both platforms as envirnment is down",
+        "actions": [
+          "CIAM Team will update the team,once enviroment is up. QA to retest on both platforms",
+          "FE: Fix server not responding on login screen; QA to retest on both platforms",
+          "BE: confirm environment fix for eligibility API timeouts"
+        ]
+      },
+      "platforms": {
+        "iOS": {
+          "build": "5.12.0 (2431)",
+          "devices": "",
+          "journeys": [
+            {
+              "name": "Payments and Transfer",
+              "owner": "Waleed",
+              "notes": "",
+              "scenarios": {
+                "total": 24,
+                "passed": 24,
+                "failed": 0,
+                "blocked": 0,
+                "skipped": 0
+              },
+              "status": "Pass"
+            },
+            {
+              "name": "Open Finance",
+              "owner": "Nazim",
+              "notes": "",
+              "scenarios": {
+                "total": 30,
+                "passed": 30,
+                "failed": 0,
+                "blocked": 0,
+                "skipped": 0
+              },
+              "status": "Pass"
+            },
+            {
+              "name": "LVS",
+              "owner": "Althad",
+              "notes": "Environment was down",
+              "scenarios": {
+                "total": 28,
+                "passed": 27,
+                "failed": 1,
+                "blocked": 0,
+                "skipped": 0
+              },
+              "status": "Fail"
+            },
+            {
+              "name": "DFVS",
+              "owner": "Gautam",
+              "notes": "Test data dependency with PRIME",
+              "scenarios": {
+                "total": 20,
+                "passed": 9,
+                "failed": 0,
+                "blocked": 11,
+                "skipped": 0
+              },
+              "status": "Blocked"
+            },
+            {
+              "name": "Fraud",
+              "owner": "Abel",
+              "notes": "",
+              "scenarios": {
+                "total": 35,
+                "passed": 35,
+                "failed": 0,
+                "blocked": 0,
+                "skipped": 0
+              },
+              "status": "Pass"
+            },
+            {
+              "name": "Branch services",
+              "owner": "Bhustan",
+              "notes": "Script maintanance",
+              "scenarios": {
+                "total": 22,
+                "passed": 19,
+                "failed": 3,
+                "blocked": 0,
+                "skipped": 0
+              },
+              "status": "Fail"
+            },
+            {
+              "name": "Minor",
+              "owner": "Nazim",
+              "notes": "Push permission test is flaky on iOS 17 simulator; passed on third pipeline.",
+              "scenarios": {
+                "total": 18,
+                "passed": 18,
+                "failed": 0,
+                "blocked": 0,
+                "skipped": 0
+              },
+              "status": "Pass"
+            },
+            {
+              "name": "PFM",
+              "owner": "Sadiya",
+              "notes": "",
+              "scenarios": {
+                "total": 16,
+                "passed": 16,
+                "failed": 0,
+                "blocked": 0,
+                "skipped": 0
+              },
+              "status": "Pass"
+            }
+          ]
+        },
+        "Android": {
+          "build": "5.12.0 (7120)",
+          "devices": "",
+          "journeys": [
+            {
+              "name": "Payments and Transfer",
+              "owner": "Waleed",
+              "notes": "",
+              "scenarios": {
+                "total": 24,
+                "passed": 24,
+                "failed": 0,
+                "blocked": 0,
+                "skipped": 0
+              },
+              "status": "Pass"
+            },
+            {
+              "name": "Open Finance",
+              "owner": "Nazim",
+              "notes": "Failures were device-farm network drops; cleared on re-run.",
+              "scenarios": {
+                "total": 30,
+                "passed": 30,
+                "failed": 0,
+                "blocked": 0,
+                "skipped": 0
+              },
+              "status": "Pass"
+            },
+            {
+              "name": "LVS",
+              "owner": "Althad",
+              "notes": "",
+              "scenarios": {
+                "total": 28,
+                "passed": 28,
+                "failed": 0,
+                "blocked": 0,
+                "skipped": 0
+              },
+              "status": "Pass"
+            },
+            {
+              "name": "DFVS",
+              "owner": "Gautam",
+              "notes": "Change requirement, script maintanance",
+              "scenarios": {
+                "total": 20,
+                "passed": 9,
+                "failed": 0,
+                "blocked": 11,
+                "skipped": 0
+              },
+              "status": "Blocked"
+            },
+            {
+              "name": "Fraud",
+              "owner": "Abel",
+              "notes": "",
+              "scenarios": {
+                "total": 35,
+                "passed": 35,
+                "failed": 0,
+                "blocked": 0,
+                "skipped": 0
+              },
+              "status": "Pass"
+            },
+            {
+              "name": "Branch services",
+              "owner": "Bhustan",
+              "notes": "server not responding",
+              "scenarios": {
+                "total": 22,
+                "passed": 19,
+                "failed": 3,
+                "blocked": 0,
+                "skipped": 0
+              },
+              "status": "Fail"
+            },
+            {
+              "name": "Minor",
+              "owner": "Nazim",
+              "notes": "",
+              "scenarios": {
+                "total": 18,
+                "passed": 18,
+                "failed": 0,
+                "blocked": 0,
+                "skipped": 0
+              },
+              "status": "Pass"
+            },
+            {
+              "name": "PFM",
+              "owner": "Sadiya",
+              "notes": "",
+              "scenarios": {
+                "total": 16,
+                "passed": 16,
+                "failed": 0,
+                "blocked": 0,
+                "skipped": 0
+              },
+              "status": "Pass"
+            }
+          ]
+        }
+      },
+      "defects": [
+        {
+          "id": "DEF-2041",
+          "title": "Environment was down",
+          "journey": "Payments and Transfer",
+          "platform": "Both",
+          "severity": "Critical",
+          "status": "In Progress",
+          "owner": "Waleed",
+          "reported": "2026-10-12",
+          "eta": "2026-10-22",
+          "url": "https://jira.example.com/browse/DEF-2041",
+          "failureType": "Application defect",
+          "affectedTests": 5,
+          "notes": "Referral status changes in the app never reach the EHR; blocks referral sign-off on both platforms."
+        },
+        {
+          "id": "DEF-2043",
+          "title": "Test data dependency with PRIME",
+          "journey": "Open Finance",
+          "platform": "Both",
+          "severity": "High",
+          "status": "Open",
+          "owner": "Nazim",
+          "reported": "2026-10-14",
+          "eta": "2026-10-20",
+          "url": "https://jira.example.com/browse/DEF-2043",
+          "failureType": "Application defect",
+          "affectedTests": 22,
+          "notes": "11 scenarios per platform blocked until upstream change lands."
+        },
+        {
+          "id": "DEF-2047",
+          "title": "Server not responding on login",
+          "journey": "LVS",
+          "platform": "iOS",
+          "severity": "High",
+          "status": "In Progress",
+          "owner": "Althaf",
+          "reported": "2026-10-15",
+          "eta": "2026-10-19",
+          "url": "https://jira.example.com/browse/DEF-2047",
+          "failureType": "Environment / test data",
+          "affectedTests": 1,
+          "notes": "Intermittent; retest scheduled before sign-off."
+        }
       ]
     },
     {
       "id": "2026.09",
       "name": "September 2026 Release",
       "date": "2026-09-20",
-      "journeys": [
-        { "name": "Patient Intake", "status": "Pass", "owner": "Riya Shah", "notes": "", "scenarios": { "total": 24, "passed": 24, "failed": 0, "blocked": 0, "skipped": 0 } },
-        { "name": "Appointment Scheduling", "status": "Pass", "owner": "Riya Shah", "notes": "", "scenarios": { "total": 29, "passed": 29, "failed": 0, "blocked": 0, "skipped": 0 } },
-        { "name": "Insurance Verification", "status": "Pass", "owner": "Arjun Mehta", "notes": "", "scenarios": { "total": 27, "passed": 27, "failed": 0, "blocked": 0, "skipped": 0 } },
-        { "name": "Care Plan Generation", "status": "Pass", "owner": "Priya Nair", "notes": "", "scenarios": { "total": 20, "passed": 20, "failed": 0, "blocked": 0, "skipped": 0 } },
-        { "name": "Billing & Claims", "status": "At Risk", "owner": "Karan Verma", "notes": "Minor rounding discrepancy in claims total; monitoring, low impact.", "scenarios": { "total": 34, "passed": 31, "failed": 1, "blocked": 0, "skipped": 2 } },
-        { "name": "Referral Management", "status": "Pass", "owner": "Arjun Mehta", "notes": "", "scenarios": { "total": 22, "passed": 22, "failed": 0, "blocked": 0, "skipped": 0 } },
-        { "name": "Patient Notifications", "status": "Pass", "owner": "Priya Nair", "notes": "", "scenarios": { "total": 18, "passed": 18, "failed": 0, "blocked": 0, "skipped": 0 } },
-        { "name": "Reporting Dashboard", "status": "Pass", "owner": "Karan Verma", "notes": "", "scenarios": { "total": 16, "passed": 16, "failed": 0, "blocked": 0, "skipped": 0 } }
-      ]
+      "platforms": {
+        "iOS": {
+          "build": "5.11.0 (2377)",
+          "journeys": [
+            {
+              "name": "Patient Intake",
+              "status": "Pass",
+              "owner": "Riya Shah",
+              "notes": "",
+              "scenarios": {
+                "total": 24,
+                "passed": 24,
+                "failed": 0,
+                "blocked": 0,
+                "skipped": 0
+              }
+            },
+            {
+              "name": "Appointment Scheduling",
+              "status": "Pass",
+              "owner": "Riya Shah",
+              "notes": "",
+              "scenarios": {
+                "total": 29,
+                "passed": 29,
+                "failed": 0,
+                "blocked": 0,
+                "skipped": 0
+              }
+            },
+            {
+              "name": "Insurance Verification",
+              "status": "Pass",
+              "owner": "Arjun Mehta",
+              "notes": "",
+              "scenarios": {
+                "total": 27,
+                "passed": 27,
+                "failed": 0,
+                "blocked": 0,
+                "skipped": 0
+              }
+            },
+            {
+              "name": "Care Plan Generation",
+              "status": "Pass",
+              "owner": "Priya Nair",
+              "notes": "",
+              "scenarios": {
+                "total": 20,
+                "passed": 20,
+                "failed": 0,
+                "blocked": 0,
+                "skipped": 0
+              }
+            },
+            {
+              "name": "Billing & Claims",
+              "status": "At Risk",
+              "owner": "Karan Verma",
+              "notes": "Minor rounding discrepancy in claims total; monitoring, low impact.",
+              "scenarios": {
+                "total": 34,
+                "passed": 31,
+                "failed": 1,
+                "blocked": 0,
+                "skipped": 2
+              }
+            },
+            {
+              "name": "Referral Management",
+              "status": "Pass",
+              "owner": "Arjun Mehta",
+              "notes": "",
+              "scenarios": {
+                "total": 22,
+                "passed": 22,
+                "failed": 0,
+                "blocked": 0,
+                "skipped": 0
+              }
+            },
+            {
+              "name": "Patient Notifications",
+              "status": "Pass",
+              "owner": "Priya Nair",
+              "notes": "",
+              "scenarios": {
+                "total": 18,
+                "passed": 18,
+                "failed": 0,
+                "blocked": 0,
+                "skipped": 0
+              }
+            },
+            {
+              "name": "Reporting Dashboard",
+              "status": "Pass",
+              "owner": "Karan Verma",
+              "notes": "",
+              "scenarios": {
+                "total": 16,
+                "passed": 16,
+                "failed": 0,
+                "blocked": 0,
+                "skipped": 0
+              }
+            }
+          ]
+        },
+        "Android": {
+          "build": "5.11.0 (7064)",
+          "journeys": [
+            {
+              "name": "Patient Intake",
+              "status": "Pass",
+              "owner": "Riya Shah",
+              "notes": "",
+              "scenarios": {
+                "total": 24,
+                "passed": 24,
+                "failed": 0,
+                "blocked": 0,
+                "skipped": 0
+              }
+            },
+            {
+              "name": "Appointment Scheduling",
+              "status": "Pass",
+              "owner": "Riya Shah",
+              "notes": "",
+              "scenarios": {
+                "total": 29,
+                "passed": 29,
+                "failed": 0,
+                "blocked": 0,
+                "skipped": 0
+              }
+            },
+            {
+              "name": "Insurance Verification",
+              "status": "At Risk",
+              "owner": "Arjun Mehta",
+              "notes": "Timeouts on low-end Android devices.",
+              "scenarios": {
+                "total": 27,
+                "passed": 24,
+                "failed": 1,
+                "blocked": 0,
+                "skipped": 2
+              }
+            },
+            {
+              "name": "Care Plan Generation",
+              "status": "Pass",
+              "owner": "Priya Nair",
+              "notes": "",
+              "scenarios": {
+                "total": 20,
+                "passed": 20,
+                "failed": 0,
+                "blocked": 0,
+                "skipped": 0
+              }
+            },
+            {
+              "name": "Billing & Claims",
+              "status": "Pass",
+              "owner": "Karan Verma",
+              "notes": "",
+              "scenarios": {
+                "total": 34,
+                "passed": 34,
+                "failed": 0,
+                "blocked": 0,
+                "skipped": 0
+              }
+            },
+            {
+              "name": "Referral Management",
+              "status": "Pass",
+              "owner": "Arjun Mehta",
+              "notes": "",
+              "scenarios": {
+                "total": 22,
+                "passed": 22,
+                "failed": 0,
+                "blocked": 0,
+                "skipped": 0
+              }
+            },
+            {
+              "name": "Patient Notifications",
+              "status": "Pass",
+              "owner": "Priya Nair",
+              "notes": "",
+              "scenarios": {
+                "total": 18,
+                "passed": 18,
+                "failed": 0,
+                "blocked": 0,
+                "skipped": 0
+              }
+            },
+            {
+              "name": "Reporting Dashboard",
+              "status": "Pass",
+              "owner": "Karan Verma",
+              "notes": "",
+              "scenarios": {
+                "total": 16,
+                "passed": 16,
+                "failed": 0,
+                "blocked": 0,
+                "skipped": 0
+              }
+            }
+          ]
+        }
+      }
     },
     {
       "id": "2026.08",
       "name": "August 2026 Release",
       "date": "2026-08-16",
-      "journeys": [
-        { "name": "Patient Intake", "status": "Pass", "owner": "Riya Shah", "notes": "", "scenarios": { "total": 23, "passed": 23, "failed": 0, "blocked": 0, "skipped": 0 } },
-        { "name": "Appointment Scheduling", "status": "At Risk", "owner": "Riya Shah", "notes": "Flaky slot-locking test under load; fixed in next sprint.", "scenarios": { "total": 28, "passed": 24, "failed": 3, "blocked": 0, "skipped": 1 } },
-        { "name": "Insurance Verification", "status": "Pass", "owner": "Arjun Mehta", "notes": "", "scenarios": { "total": 27, "passed": 27, "failed": 0, "blocked": 0, "skipped": 0 } },
-        { "name": "Care Plan Generation", "status": "Pass", "owner": "Priya Nair", "notes": "", "scenarios": { "total": 19, "passed": 19, "failed": 0, "blocked": 0, "skipped": 0 } },
-        { "name": "Billing & Claims", "status": "Pass", "owner": "Karan Verma", "notes": "", "scenarios": { "total": 33, "passed": 33, "failed": 0, "blocked": 0, "skipped": 0 } },
-        { "name": "Referral Management", "status": "Fail", "owner": "Arjun Mehta", "notes": "EHR sync bug first surfaced here.", "scenarios": { "total": 21, "passed": 14, "failed": 7, "blocked": 0, "skipped": 0 } },
-        { "name": "Patient Notifications", "status": "Pass", "owner": "Priya Nair", "notes": "", "scenarios": { "total": 17, "passed": 17, "failed": 0, "blocked": 0, "skipped": 0 } },
-        { "name": "Reporting Dashboard", "status": "Pass", "owner": "Karan Verma", "notes": "", "scenarios": { "total": 15, "passed": 15, "failed": 0, "blocked": 0, "skipped": 0 } }
-      ]
+      "platforms": {
+        "iOS": {
+          "build": "5.10.0 (2310)",
+          "journeys": [
+            {
+              "name": "Patient Intake",
+              "status": "Pass",
+              "owner": "Riya Shah",
+              "notes": "",
+              "scenarios": {
+                "total": 23,
+                "passed": 23,
+                "failed": 0,
+                "blocked": 0,
+                "skipped": 0
+              }
+            },
+            {
+              "name": "Appointment Scheduling",
+              "status": "At Risk",
+              "owner": "Riya Shah",
+              "notes": "Flaky slot-locking test under load; fixed in next sprint.",
+              "scenarios": {
+                "total": 28,
+                "passed": 24,
+                "failed": 3,
+                "blocked": 0,
+                "skipped": 1
+              }
+            },
+            {
+              "name": "Insurance Verification",
+              "status": "Pass",
+              "owner": "Arjun Mehta",
+              "notes": "",
+              "scenarios": {
+                "total": 27,
+                "passed": 27,
+                "failed": 0,
+                "blocked": 0,
+                "skipped": 0
+              }
+            },
+            {
+              "name": "Care Plan Generation",
+              "status": "Pass",
+              "owner": "Priya Nair",
+              "notes": "",
+              "scenarios": {
+                "total": 19,
+                "passed": 19,
+                "failed": 0,
+                "blocked": 0,
+                "skipped": 0
+              }
+            },
+            {
+              "name": "Billing & Claims",
+              "status": "Pass",
+              "owner": "Karan Verma",
+              "notes": "",
+              "scenarios": {
+                "total": 33,
+                "passed": 33,
+                "failed": 0,
+                "blocked": 0,
+                "skipped": 0
+              }
+            },
+            {
+              "name": "Referral Management",
+              "status": "Fail",
+              "owner": "Arjun Mehta",
+              "notes": "EHR sync bug first surfaced here.",
+              "scenarios": {
+                "total": 21,
+                "passed": 14,
+                "failed": 7,
+                "blocked": 0,
+                "skipped": 0
+              }
+            },
+            {
+              "name": "Patient Notifications",
+              "status": "Pass",
+              "owner": "Priya Nair",
+              "notes": "",
+              "scenarios": {
+                "total": 17,
+                "passed": 17,
+                "failed": 0,
+                "blocked": 0,
+                "skipped": 0
+              }
+            },
+            {
+              "name": "Reporting Dashboard",
+              "status": "Pass",
+              "owner": "Karan Verma",
+              "notes": "",
+              "scenarios": {
+                "total": 15,
+                "passed": 15,
+                "failed": 0,
+                "blocked": 0,
+                "skipped": 0
+              }
+            }
+          ]
+        },
+        "Android": {
+          "build": "5.10.0 (6998)",
+          "journeys": [
+            {
+              "name": "Patient Intake",
+              "status": "Pass",
+              "owner": "Riya Shah",
+              "notes": "",
+              "scenarios": {
+                "total": 23,
+                "passed": 23,
+                "failed": 0,
+                "blocked": 0,
+                "skipped": 0
+              }
+            },
+            {
+              "name": "Appointment Scheduling",
+              "status": "Pass",
+              "owner": "Riya Shah",
+              "notes": "",
+              "scenarios": {
+                "total": 28,
+                "passed": 28,
+                "failed": 0,
+                "blocked": 0,
+                "skipped": 0
+              }
+            },
+            {
+              "name": "Insurance Verification",
+              "status": "Pass",
+              "owner": "Arjun Mehta",
+              "notes": "",
+              "scenarios": {
+                "total": 27,
+                "passed": 27,
+                "failed": 0,
+                "blocked": 0,
+                "skipped": 0
+              }
+            },
+            {
+              "name": "Care Plan Generation",
+              "status": "Blocked",
+              "owner": "Priya Nair",
+              "notes": "Test environment unavailable for 2 days.",
+              "scenarios": {
+                "total": 19,
+                "passed": 12,
+                "failed": 0,
+                "blocked": 7,
+                "skipped": 0
+              }
+            },
+            {
+              "name": "Billing & Claims",
+              "status": "Pass",
+              "owner": "Karan Verma",
+              "notes": "",
+              "scenarios": {
+                "total": 33,
+                "passed": 33,
+                "failed": 0,
+                "blocked": 0,
+                "skipped": 0
+              }
+            },
+            {
+              "name": "Referral Management",
+              "status": "Fail",
+              "owner": "Arjun Mehta",
+              "notes": "EHR sync bug first surfaced here.",
+              "scenarios": {
+                "total": 21,
+                "passed": 15,
+                "failed": 6,
+                "blocked": 0,
+                "skipped": 0
+              }
+            },
+            {
+              "name": "Patient Notifications",
+              "status": "At Risk",
+              "owner": "Priya Nair",
+              "notes": "FCM delivery delays on some OEM devices.",
+              "scenarios": {
+                "total": 17,
+                "passed": 15,
+                "failed": 1,
+                "blocked": 0,
+                "skipped": 1
+              }
+            },
+            {
+              "name": "Reporting Dashboard",
+              "status": "Pass",
+              "owner": "Karan Verma",
+              "notes": "",
+              "scenarios": {
+                "total": 15,
+                "passed": 15,
+                "failed": 0,
+                "blocked": 0,
+                "skipped": 0
+              }
+            }
+          ]
+        }
+      }
     }
   ]
 }

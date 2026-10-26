@@ -1,0 +1,15 @@
+{
+  "name": "regression-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Mobile regression dashboard with Excel-to-JSON data pipeline",
+  "scripts": {
+    "serve": "node serve.js",
+    "template": "node tools/make-template.js",
+    "build-data": "node tools/build-data.js",
+    "watch": "node tools/watch-data.js"
+  },
+  "dependencies": {
+    "exceljs": "4.4.0"
+  }
+}
